@@ -1,0 +1,21 @@
+﻿@model Mvc_cv.Models.Entity.Tbl_Admin
+@{
+    ViewBag.Title = "AdminGetir";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h2>Deneyim Güncelleme Sayfası</h2>
+<form method="post">
+    @Html.Label("Kullanıcı ID")
+    @Html.TextBoxFor(x => x.ID, new { @class = "form-control" })
+    <br />
+    @Html.Label("Kullanıcı AD")
+    @Html.TextBoxFor(x => x.Kullanici_Adi, new { @class = "form-control" })
+    <br />
+    @Html.Label("Şifre")
+    @Html.TextBoxFor(x => x.Sifre, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-primary">Kaydet</button>
+</form>
+
+

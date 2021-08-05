@@ -1,0 +1,43 @@
+﻿@model Mvc_cv.Models.Entity.Tbl_Egitimlerim
+@{
+    ViewBag.Title = "EgitimEkle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<h2>Egitim Ekleme Sayfası</h2>
+<br />
+<form class="form-group" method="post">
+
+    <label>Başlık</label>
+    <input type="text" name="Baslik" placeholder="Başlık" class="form-control" />
+    @Html.ValidationMessageFor(x => x.Baslik, "", new { @class = "text-danger" })
+    <br />
+    <br />
+
+    <label>Alt Başlık</label>
+    <input type="text" name="Alt_Baslik" placeholder="Alt Başlık" class="form-control" />
+    @Html.ValidationMessageFor(x => x.Baslik, "",new {@class = "text-danger" })
+    <br />
+    <br />
+
+    <label>Alt Başlık 2</label>
+    <input type="text" name="Alt_Baslik2" placeholder="Alt Başlık 2" class="form-control" />
+    @Html.ValidationMessageFor(x => x.Baslik, "", new { @class = "text-danger" })
+    <br />
+    <br />
+
+    <label>Genel Not Ortalaması</label>
+    <input type="number" name="Gno" placeholder="GNO" class="form-control" maxlength="100" min="0" value="0" />
+    @Html.ValidationMessageFor(x => x.Baslik, "", new { @class = "text-danger" })
+    <br />
+    <br />
+
+    <label>Tarih</label>
+    <input type="date" name="Tarih" placeholder="Oran" class="form-control" />
+    @Html.ValidationMessageFor(x => x.Baslik, "", new { @class = "text-danger" })
+    <br />
+    <br />
+
+    <button class="btn btn-dark">Egitim Ekle</button>
+
+</form>
+

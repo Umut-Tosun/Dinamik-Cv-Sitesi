@@ -1,0 +1,80 @@
+﻿@using Mvc_cv.Models.Entity
+@model List<Tbl_Sosyalmedya>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<table class="table table-bordered" style="        background-color: #082032;color:white">
+    <tr style="background-color:#dd6c00">
+        <th>#</th>
+        <th>Ad</th>
+        <th>Link</th>
+        <th>İcon</th>
+        <th>Durum</th>
+        <th>Sil</th>
+        <th>Düzenle</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ID</td>
+            <td>@item.Ad</td>
+            <td>@item.Link</td>
+            <td>@item.icon</td>
+            <td>
+                @if (item.Durum == true)
+                {
+                    <span class="badge badge-success">Aktif</span>
+                }
+                else
+                {
+                    <span class="badge badge-danger">Pasif</span>
+                }
+            </td>
+            <td>
+                @if (item.Durum == true)
+                {
+                    <a class="btn btn-outline-danger btn-sm" href="/SosyalMedya/SosyalMedyaSil/@item.ID"> <i class="fas fa-trash"> </i>  Pasif Yap  </a>
+                }
+                else
+                {
+                    <a class="btn btn-outline-success btn-sm" href="/SosyalMedya/SosyalMedyaSil/@item.ID"> <i class="fas fa-trash"> </i>   Aktif Yap  </a>
+                }
+            </td>
+            
+            <td>
+                <a class="btn btn-outline-primary btn-sm" style="width:100px" href="/SosyalMedya/SosyalMedyaGetir/@item.ID">
+                    <i class="fas fa-pencil-alt">
+                    </i>
+                    Güncelle
+                </a>
+            </td>
+        </tr>
+    }
+</table>
+<a href="/SosyalMedya/SosyalMedyaEkle/" class="btn" style="        background-color: #FF4C29;color:white" data-toggle="modal" data-target="#Modal1">Yeni Sosya Medya Hesabı Ekle</a>
+<div class="modal" id="Modal1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color:#082032;color:white">
+                <h2 class="modal-title">Sosyal Medya Ekleme Penceresi</h2>
+            </div>
+            <form method="post" action="/SosyalMedya/SosyalMedyaEkle/">
+                <div class="modal-body" style="background-color:#082032;color:white">
+                    <label>Sosyal Medya İsmi</label>
+                    <input type="text" name="Ad" placeholder="Ad" class="form-control" />
+                    <br />
+                    <label>Sosyal Medya Link</label>
+                    <input type="text" name="Link" placeholder="Link" class="form-control" />
+                    <br />
+                    <label>Sosyal Medya icon</label>
+                    <input type="text" name="icon" placeholder="icon" class="form-control" />
+                    <br />
+                    <button class="btn" style="background-color: #334756;color:white">Kaydet</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
